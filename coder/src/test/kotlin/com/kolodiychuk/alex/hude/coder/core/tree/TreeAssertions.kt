@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions
 
 object TreeAssertions {
 
-  fun assertTreesEqual(expected: Node, actual: Node) {
+  fun assertTreesEqual(expected: Tree, actual: Tree) {
     Assertions.assertEquals(expected.value, actual.value)
     Assertions.assertEquals(expected.value.length, actual.value.length)
     when (actual.value.length) {

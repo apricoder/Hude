@@ -1,10 +1,10 @@
 package com.kolodiychuk.alex.hude.coder.core.tree
 
-open class Node(
+open class Tree(
     val value: String = "",
-    val left: Node? = null,
-    val right: Node? = null) {
+    val left: Tree? = null,
+    val right: Tree? = null) {
 
-  constructor(value: String, children: Pair<Node, Node>)
+  constructor(value: String, children: Pair<Tree, Tree>)
       : this(value, children.first, children.second)
 }

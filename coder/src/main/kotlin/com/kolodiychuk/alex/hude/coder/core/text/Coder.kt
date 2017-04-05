@@ -1,4 +1,4 @@
-package com.kolodiychuk.alex.hude.coder.core
+package com.kolodiychuk.alex.hude.coder.core.text
 
 import java.util.*
 

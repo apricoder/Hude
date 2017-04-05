@@ -26,7 +26,7 @@ object TreeBuilderSpek : Spek({
 
     it("builds simple tree with root and two children from 2 symbols") {
       val symbols = "ab"
-      val expectedTree = Node("ab",
+      val expectedTree = Tree("ab",
           Leaf("a"),
           Leaf("b")
       )
@@ -36,9 +36,9 @@ object TreeBuilderSpek : Spek({
     it("""builds a tree with 1 leaf on the left side and
           a sub tree with 2 leafs on the right for 3 symbols""") {
       val symbols = "abc"
-      val expectedTree = Node("abc",
+      val expectedTree = Tree("abc",
           Leaf("a"),
-          Node("bc",
+          Tree("bc",
               Leaf("b"),
               Leaf("c")
           )
@@ -48,20 +48,20 @@ object TreeBuilderSpek : Spek({
 
     it("builds a more complex tree") {
       val symbols = "abcdefg"
-      val expectedTree = Node("abcdefg",
-          Node("abc",
+      val expectedTree = Tree("abcdefg",
+          Tree("abc",
               Leaf("a"),
-              Node("bc",
+              Tree("bc",
                   Leaf("b"),
                   Leaf("c")
               )
           ),
-          Node("defg",
-              Node("de",
+          Tree("defg",
+              Tree("de",
                   Leaf("d"),
                   Leaf("e")
               ),
-              Node("fg",
+              Tree("fg",
                   Leaf("f"),
                   Leaf("g")
               )
