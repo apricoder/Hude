@@ -2,13 +2,6 @@ package com.kolodiychuk.alex.hude.common
 
 object Normalizer {
 
-  val allowedSymbols = """
-  о а и н в і т е с л р к у д м ,
-  п я з б . г ь ч й х ж ш ю - щ ї
-  ц є ! ? і : \ ; ф ) ( " [ ] 1 ы
-  * 8 4 2 5 3 6 9 ' 7 0 ґ э / ъ ё
-  """
-
   val replacements = mapOf(
 
                           /*------------------------------------------------------------*/
@@ -31,7 +24,7 @@ object Normalizer {
   fun fix(text: String): String {
     var normalized = text
     replacements.keys.forEach { normalized = normalized.replace(it, replacements[it]!!) }
-    return normalized.filter { allowedSymbols.contains(it, true) }
+    return normalized.filter { ukrainianSymbols.contains(it.toLowerCase()) }
   }
 
 }
