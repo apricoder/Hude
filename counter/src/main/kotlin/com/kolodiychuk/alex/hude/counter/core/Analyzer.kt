@@ -10,15 +10,11 @@ object Analyzer {
       .reduce()
       .sortedByValuesDesc()
 
-  fun countFileCharOccurrences(file: File): Occurrences {
-    val readLines = file
-        .readLines()
-    val list = readLines.map { countCharOccurrences(it) }
-    val reduce = list
-        .reduce()
-    return reduce
-        .sortedByValuesDesc()
-  }
+  fun countFileCharOccurrences(file: File): Occurrences = file
+      .readLines()
+      .map { countCharOccurrences("$it\n") }
+      .reduce()
+      .sortedByValuesDesc()
 
   fun countCharOccurrences(line: String): Occurrences = with(line, ::fix)
       .toLowerCase().toCharArray()

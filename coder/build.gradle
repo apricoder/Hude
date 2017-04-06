@@ -1,2 +1,6 @@
 group 'com.kolodiychuk.alex'
 version '1.0-SNAPSHOT'
+
+dependencies {
+    compile project(':common')
+}
