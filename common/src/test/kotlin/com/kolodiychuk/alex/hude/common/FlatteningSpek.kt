@@ -1,6 +1,5 @@
 package com.kolodiychuk.alex.hude.common
 
-import com.kolodiychuk.alex.hude.counter.core.flatten
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it

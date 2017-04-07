@@ -76,24 +76,24 @@ object TreeBuilderSpek : Spek({
       val tree = TreeBuilder.makeTree(ukrainianSymbols.joinToString(""))
 
       /* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-      *
-      *    Visual representation of bottom-left corner
-      *    of tree built from calculated ukrainian symbols
-      *    occurrences rating (space replaced with underscore)
-      *
-      *
-      *                      ...                    ...
-      *
-      *
-      *              /                 \
-      *         (_оаи)                 (нвіт)
-      *         /    \                 /    \
-      *        /      \               /      \
-      *     (_о)      (аи)         (нв)      (іт)
-      *     /  \      /  \         /  \      /  \
-      *   (_)  (о)  (а)  (и)     (н)  (в)  (і)  (т)
-      *
-      * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+       *
+       *    Visual representation of bottom-left corner
+       *    of tree built from calculated ukrainian symbols
+       *    occurrences rating (space replaced with underscore)
+       *
+       *
+       *                      ...                    ...
+       *
+       *
+       *              /                 \
+       *         (_оаи)                 (нвіт)
+       *         /    \                 /    \
+       *        /      \               /      \
+       *     (_о)      (аи)         (нв)      (іт)
+       *     /  \      /  \         /  \      /  \
+       *   (_)  (о)  (а)  (и)     (н)  (в)  (і)  (т)
+       *
+       * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 
       /* Subtree with ' ', 'о', 'а', 'и' symbols (left on the graph) */

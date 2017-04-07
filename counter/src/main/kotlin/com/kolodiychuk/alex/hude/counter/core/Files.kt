@@ -1,5 +1,6 @@
 package com.kolodiychuk.alex.hude.counter.core
 
+import com.kolodiychuk.alex.hude.common.flatten
 import java.io.File
 
 

@@ -1,6 +1,6 @@
 package com.kolodiychuk.alex.hude.counter
 
-import com.kolodiychuk.alex.hude.counter.core.flatten
+import com.kolodiychuk.alex.hude.counter.common.flatten
 import org.junit.jupiter.api.Assertions
 
 object CustomAssertions {

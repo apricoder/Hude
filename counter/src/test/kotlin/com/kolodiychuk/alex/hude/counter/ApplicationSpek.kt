@@ -1,6 +1,6 @@
 package com.kolodiychuk.alex.hude.counter
 
-import com.kolodiychuk.alex.hude.counter.core.flatten
+import com.kolodiychuk.alex.hude.common.flatten
 import com.kolodiychuk.alex.hude.counter.core.outputFlag
 import com.kolodiychuk.alex.hude.counter.core.sourcesFlag
 import org.jetbrains.spek.api.Spek

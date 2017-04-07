@@ -1,11 +1,11 @@
-package com.kolodiychuk.alex.hude.counter.core
+package com.kolodiychuk.alex.hude.common
 
 inline fun <reified T> Array<*>.flatten(): Array<T> = this.flatMap {
-  com.kolodiychuk.alex.hude.counter.core.flatten<T>(it)
+  flatten<T>(it)
 }.toTypedArray()
 
 inline fun <reified T> Collection<*>.flatten(): Collection<T> = this.flatMap {
-  com.kolodiychuk.alex.hude.counter.core.flatten<T>(it)
+  flatten<T>(it)
 }
 
 fun <T> flatten(it: Any?): List<T> {

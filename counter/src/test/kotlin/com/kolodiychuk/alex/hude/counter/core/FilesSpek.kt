@@ -1,5 +1,6 @@
 package com.kolodiychuk.alex.hude.counter.core
 
+import com.kolodiychuk.alex.hude.common.flatten
 import com.kolodiychuk.alex.hude.counter.CounterTests
 import com.kolodiychuk.alex.hude.counter.CustomAssertions
 import org.jetbrains.spek.api.Spek
