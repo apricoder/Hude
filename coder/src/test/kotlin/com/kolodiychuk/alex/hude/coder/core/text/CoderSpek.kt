@@ -26,7 +26,6 @@ object CoderSpek : Spek({
     }
 
     it("encodes 'mama' word") {
-
       val source = "мама"
       val expected =
           /* м */ "001111" + /* а */ "000010" + /* м */ "001111" + /* а */ "000010"
@@ -53,6 +52,43 @@ object CoderSpek : Spek({
       Assertions.assertEquals(expected, coder.sencode(source))
     }
 
+    it("decodes single symbol") {
+      Assertions.assertEquals("ч", coder.sdecode("011001"))
+    }
+
+    it("decodes 'mama' word") {
+      val bits =
+          /* м */ "001111" + /* а */ "000010" + /* м */ "001111" + /* а */ "000010"
+      Assertions.assertEquals("мама", coder.sdecode(bits))
+    }
+
+    it("encodes and decodes text to compare if returned to same data") {
+      val text = "Цей текст, доволі довгий, буде закодовано " + "\n" +
+          "використовуючи мапу, приготовану на основі рейтингу " + "\n" +
+          "появлень літер в українській мові. Розкодований " + "\n" +
+          "код повинен дорівнювати оригінальному тексту. Регістр " + "\n" +
+          "літер при цьому ігнорується."
+
+      val encoded = coder.sencode(text)
+      val decoded = coder.sdecode(encoded)
+
+      println("* * * * * * * * * * * * * * * * * * * *")
+      println("Text:\n$text\n\n")
+      println("Encoded:\n${breakLines(encoded)}\n\n")
+      println("Decoded:\n$decoded\n\n")
+      println("* * * * * * * * * * * * * * * * * * * *")
+
+      Assertions.assertEquals(text.toLowerCase(), decoded)
+    }
+
   }
 
 })
+
+fun breakLines(line: String): String {
+  val linesLength = 50
+  val linesCount = line.length / linesLength
+  return (0..linesCount).map {
+    line.substring(it * linesLength, Math.min((it + 1) * linesLength, line.length)) + "\n"
+  }.reduce { acc, line -> acc + line }
+}

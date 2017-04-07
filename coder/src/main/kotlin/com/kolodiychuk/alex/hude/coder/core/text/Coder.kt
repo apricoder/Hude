@@ -3,13 +3,8 @@ package com.kolodiychuk.alex.hude.coder.core.text
 import com.kolodiychuk.alex.hude.coder.core.tree.Tree
 import com.kolodiychuk.alex.hude.coder.core.tree.TreeBuilder
 import com.kolodiychuk.alex.hude.common.ukrainianSymbols
-import java.util.*
 
 class Coder(val tree: Tree = TreeBuilder.makeTree(ukrainianSymbols.joinToString(""))) {
-
-   fun encode(text: String): BitSet {
-     return BitSet()
-   }
 
   fun sencode(symbols: String, tree: Tree = this.tree): String = symbols
       .map { sencodeSymbol(it, tree) }
@@ -25,18 +20,26 @@ class Coder(val tree: Tree = TreeBuilder.makeTree(ukrainianSymbols.joinToString(
         }
       })
 
-  fun decode(bits: BitSet): String {
-    return ""
-  }
+  fun sdecode(sbits: String, tree: Tree = this.tree): String {
+    val decoded = mutableListOf<String>()
+    var nextTree = tree
+    sbits.forEach { bit ->
 
-  fun makeBitSet(bitsString: String): BitSet {
-    val bitSet = BitSet(bitsString.length)
-    bitsString.forEachIndexed { index, b ->
-      when (b) {
-        '1' -> bitSet.set(index)
+      val t = when (bit) {
+        '0' -> nextTree.left
+        '1' -> nextTree.right
+        else -> throw Error("Invalid bit value")
       }
+
+      if (t != null) {
+        if (t.value.length == 1) {
+          decoded.add(t.value)
+          nextTree = tree
+        } else nextTree = t
+      } else throw Error("Can't decode - missing tree node")
     }
-    return bitSet
+
+    return decoded.reduce { acc, c -> acc + c }
   }
 
 }
