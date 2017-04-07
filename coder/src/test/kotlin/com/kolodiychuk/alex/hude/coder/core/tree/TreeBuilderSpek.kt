@@ -19,7 +19,7 @@ object TreeBuilderSpek : Spek({
       }
     }
 
-    it("builds a singleton tree with one leaffrom single symbol") {
+    it("builds a singleton tree with one leaf from single symbol") {
       val symbols = "a"
       val expectedTree = Leaf("a")
       TreeAssertions.assertTreesEqual(expectedTree, builder.makeTree(symbols))
