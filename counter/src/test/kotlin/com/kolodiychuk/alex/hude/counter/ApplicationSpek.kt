@@ -39,7 +39,7 @@ object ApplicationSpek : Spek({
     }
 
     /*
-        change 'xit' to 'it' to run ignored files
+        change 'xit' to 'it' to run ignored tests
     */
     xit("counts occurrences of chars in test resources files") {
       app.main(arrayOf(sourcesFlag, paths).flatten())
