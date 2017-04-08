@@ -102,7 +102,7 @@ lists or arrays which wasn't available until Kotlin 1.1
 ### To do
 
 * Decode / encode using *bits* (currently it is done on string representations of bits, like on snippet above)
-* Provide **coder** command line interface to be able to specify *input files* and *operation to do on them: *encode* or *decode*
+* Provide **coder** command line interface to be able to specify *input files* and *operation* to do on them: *encode* or *decode*
 * **Check if tree can be optimized** (currently that's *balanced tree* but may be that more frequent symbols should be placed closer to the root of tree in cost of putting seldom ones further)
 
 
